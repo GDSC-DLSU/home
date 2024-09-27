@@ -1,6 +1,6 @@
 import React from "react";
-import "./Contact.css";
-import message_icon from "../../assets/msg-icon.png";
+import "../styles/Contact.css";
+import message_icon from "../assets/msg-icon.png";
 
 const Contact = () => {
   return (

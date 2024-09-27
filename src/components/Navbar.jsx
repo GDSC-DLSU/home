@@ -1,6 +1,6 @@
 import React from "react";
-import "./Navbar.css";
-import logo from "../../assets/gdscLogoBanner.png";
+import "../styles/Navbar.css";
+import logo from "../assets/gdscLogoBanner.png";
 
 const Navbar = () => {
   const [sticky, setSticky] = React.useState(false);

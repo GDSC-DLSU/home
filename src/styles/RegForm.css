@@ -1,0 +1,31 @@
+.image-submit {
+  width: 320px;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #000; /* Adjust color based on your theme */
+  background: #fff; /* Adjust background based on your theme */
+  border: 1px solid #ccc; /* Adjust border color based on your theme */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    border-color: #1e90ff; /* Adjust hover border color */
+  }
+
+  &:focus {
+    border-color: #1e90ff; /* Adjust focus border color */
+    box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.5); /* Adjust focus box-shadow */
+  }
+
+  /* firefox */
+  &:focus-visible {
+    outline: 0;
+  }
+}
+
+#reg-form {
+  margin-top: 0;
+}

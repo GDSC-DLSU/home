@@ -8,10 +8,14 @@ import program_3 from "../assets/collab.jpg";
 import program_1_icon from "../assets/program-icon-1.png";
 import program_2_icon from "../assets/program-icon-3.png";
 import program_3_icon from "../assets/program-icon-2.png";
+import Title from "./Title";
 
 const Programs = () => {
   return (
     <Grid container spacing={2} className="programs">
+      <Grid item xs={12} id="programs">
+        <Title subTitle="Programs" title="What We Do"  />
+      </Grid>
       <Grid item xs={12} sm={6} md={4} className="program">
         <img src={program_1} alt="Program 1" />
         <div className="caption">
@@ -23,7 +27,7 @@ const Programs = () => {
         <img src={program_2} alt="Program 2" />
         <div className="caption">
           <img src={program_2_icon} alt="Program 2 Icon" />
-          <Typography variant="body1">Job Fests</Typography>
+          <Typography variant="body1">Dev Fests</Typography>
         </div>
       </Grid>
       <Grid item xs={12} sm={6} md={4} className="program">

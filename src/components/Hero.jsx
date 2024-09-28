@@ -2,18 +2,16 @@ import React from "react";
 import "../styles/Hero.css";
 import dark_arrow from "../assets/dark-arrow.png";
 
-const target = document.getElementById("reg-form");
-
 const Hero = () => {
   const scrollToForm = () => {
-    const formElement = target;
+    const formElement = document.getElementById("reg-form");
     if (formElement) {
       formElement.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
-    <div className="hero container">
+    <div className="hero container" id="hero">
       <div className="hero-text">
         <h1>Connect. Learn. Grow</h1>
         <p>

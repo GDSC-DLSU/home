@@ -4,8 +4,12 @@ import Grid from '@mui/material/Grid';
 import { debounce } from 'lodash';
 import departmentsProgramsMap from '../data/DepartmentPrograms';
 import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, doc, setDoc } from "firebase/firestore";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import PrivacyConsentDialog from './PrivacyConsentDialogBox.jsx';
+import '../styles/RegForm.css';
+import Title from "./Title";
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyADtsnaWmpHzQ1zIcIBwtyqANuUldMRf_8",
@@ -19,12 +23,14 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 const departments = [
     'GCOE', 'COS', 'RVRCOB', 'SOE', 'CLA', 'BAGCED', 'CCS'
 ];
 
 const RegForm = () => {
+    const [image, setImage] = useState(null);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -66,7 +72,7 @@ const RegForm = () => {
         debounce((name, value) => {
             let error = '';
             if (name === 'email' && !validateEmail(value)) {
-                error = 'Invalid email format';
+                error = 'Invalid email format, use your DLSU email';
             } else if (name === 'contactNumber' && !validatePhoneNumber(value)) {
                 error = 'Invalid phone number format';
             } else if (name === 'idNumber' && !validateIdNumber(value)) {
@@ -106,11 +112,41 @@ const RegForm = () => {
         }));
     };
 
+    const handleImageChange = (e) => {
+        if (e.target.files && e.target.files[0]) {
+            setImage(e.target.files[0]);
+        }
+    };
+
     const handleSubmit = async () => {
         try {
-            const docRef = await addDoc(collection(db, "applicants"), formData);
+            if (!image) {
+                alert('Please upload an image.');
+                return;
+            }
+
+            // Create a reference to the location where we want to store the file
+            const imageRef = ref(storage, `receipts/${formData.idNumber}_${image.name}`);
+
+            // Upload the file to Firebase Storage
+            const snapshot = await uploadBytes(imageRef, image);
+
+            // Get the download URL
+            const imageUrl = await getDownloadURL(snapshot.ref);
+
+            // Create a document in Firestore
+            const { firstName, lastName } = formData;
+            const customDocId = `${firstName} ${lastName}`;
+            const docRef = doc(collection(db, "applicants"), customDocId);
+
+            // Add image URL to formData
+            const dataToSave = { ...formData, receiptUrl: imageUrl };
+            await setDoc(docRef, dataToSave);
+
             console.log("Document written with ID: ", docRef.id);
             alert("Registration successful!");
+
+            // Reset form after submission
             setFormData({
                 firstName: '',
                 lastName: '',
@@ -121,8 +157,9 @@ const RegForm = () => {
                 email: '',
                 contactNumber: ''
             });
+            setImage(null);
         } catch (e) {
-            console.error("Error adding document: ", e);
+            console.error("Error during registration: ", e);
             alert("Registration failed. Please try again.");
         }
     };
@@ -158,6 +195,9 @@ const RegForm = () => {
             id='reg-form'
         >
             <Grid container spacing={2}>
+                <Grid item xs={12}>
+                <Title subTitle="Register" title="Join Us" />
+                </Grid>
                 <Grid item xs={12}>
                     <Typography component="h1" variant="h5">
                         GDSC Membership Registration Form
@@ -195,7 +235,7 @@ const RegForm = () => {
                                     variant="outlined"
                                     required
                                     fullWidth
-                                    label="Department"
+                                    label="College"
                                     value={formData.department}
                                     onChange={handleChange}
                                 >
@@ -272,6 +312,17 @@ const RegForm = () => {
                                     onChange={handleChange}
                                     error={!!errors.contactNumber}
                                     helperText={errors.contactNumber}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <input
+                                    name="Upload GCash receipt"
+                                    className='image-submit'
+                                    type="file"
+                                    id="imageInput"
+                                    accept="image/*"
+                                    onChange={handleImageChange}
+                                    required
                                 />
                             </Grid>
                             <Grid item xs={12}>

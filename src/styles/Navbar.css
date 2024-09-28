@@ -1,28 +1,66 @@
-nav {
-  width: 100%;
-  color: white;
-  padding: 4px 0;
-  position: fixed;
-  top: 0;
-  left: 0;
+.navbar {
+  background-color: #fff;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+  background-color: #fff;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 24px;
+}
+
+.nav-items {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  z-index: 10;
 }
 
-.logo {
-  width: 550px;
+.nav-item {
+  color: #5f6368;
+  font-weight: 500;
+  text-transform: none;
+  margin: 0 8px;
+  padding: 6px 8px;
 }
 
-nav ul li {
-  display: inline-block;
-  list-style: none;
-  margin: 5px 20px;
-  font-size: 16px;
+.nav-item:hover {
+  background-color: rgba(60, 64, 67, 0.08);
+  border-radius: 4px;
 }
 
-.dark-nav {
-  background: #212EA0;
-  transition: all 0.5s ease-in-out;
+.contact-button {
+  background-color: #1a73e8;
+  color: #fff;
+  text-transform: none;
+  font-weight: 500;
+  padding: 8px 24px;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.contact-button:hover {
+  background-color: #1765cc;
+  box-shadow: 0 1px 3px rgba(60, 64, 67, 0.3);
+}
+
+.menu-button {
+  color: #5f6368;
+}
+
+/* Mobile drawer styles */
+.MuiDrawer-paper {
+  width: 250px;
+  background-color: #fff;
+}
+
+.MuiListItem-root {
+  padding: 12px 24px;
+}
+
+.MuiListItemText-primary {
+  color: #3c4043;
+  font-weight: 500;
 }

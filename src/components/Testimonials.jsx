@@ -1,12 +1,12 @@
 import React from "react";
 import { useRef } from "react";
-import "./Testimonials.css";
-import next_icon from "../../assets/next-icon.png";
-import back_icon from "../../assets/back-icon.png";
-import user_1 from "../../assets/mark.png"; //should be n x n size
-import user_2 from "../../assets/mark.png";
-import user_3 from "../../assets/mark.png";
-import user_4 from "../../assets/mark.png";
+import "../styles/Testimonials.css";
+import next_icon from "../assets/next-icon.png";
+import back_icon from "../assets/back-icon.png";
+import user_1 from "../assets/about.jpg"; //should be n x n size
+import user_2 from "../assets/about.jpg";
+import user_3 from "../assets/about.jpg";
+import user_4 from "../assets/about.jpg";
 
 const Testimonials = () => {
   const slider = useRef();

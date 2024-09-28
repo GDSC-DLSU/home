@@ -4,17 +4,18 @@ import Grid from '@mui/material/Grid';
 import '../styles/About.css';
 import about_img from '../assets/about.jpg';
 import play_icon from '../assets/play-icon.png';
+import Title from './Title';
 
 const About = () => {
   return (
-    <div className="about">
-      <Grid container spacing={4}>
+    <div className="about" id="about">
+      <Grid container spacing={4} className='about-container'>
         <Grid item xs={12} md={5} className="about-left">
           <img src={about_img} alt="About" className="about-img" />
           {/* <img src={play_icon} alt="Play Icon" className="play-icon" /> */}
         </Grid>
-        <Grid item xs={12} md={7} className="about-right">
-          <Typography variant="h3" component="h3">
+        <Grid item xs={12} md={7} className="about-right" >
+          <Typography variant="h3" component="h3" >
             ABOUT GDSC DLSU
           </Typography>
           <Typography variant="h2" component="h2">

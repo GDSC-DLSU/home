@@ -4,14 +4,22 @@
   text-align: center;
 }
 
-.images {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 40px;
+.gallery img {
+  transition: transform 0.3s ease-in-out;
 }
 
-.images img {
-  width: 23%;
-  border-radius: 10px;
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .gallery {
+    width: 95%;
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery {
+    width: 100%;
+  }
 }

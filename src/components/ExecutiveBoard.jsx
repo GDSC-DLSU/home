@@ -1,11 +1,11 @@
 import React from 'react';
 import '../styles/ExecutiveBoard.css';
-import CCO from '../assets/blank.png';
+import CCO from '../assets/profile-cco.png';
 import CDO from '../assets/profile-cdo.png';
 import COO from '../assets/profile-coo.png';
 import CRO from '../assets/profile-cro.png';
 import CTO from '../assets/profile-cto.png';
-import CFO from '../assets/blank.png';
+import CFO from '../assets/profile-cfo.png';
 import CHRO from '../assets/profile-chro.png';
 import lead from '../assets/profile-lead.png';
 import Title from './Title';

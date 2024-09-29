@@ -18,14 +18,11 @@ const About = () => {
           <Typography variant="h3" component="h3" >
             ABOUT GDSC DLSU
           </Typography>
-          <Typography variant="h2" component="h2">
+          <Typography variant="h6" component="h6">
             Learning, building, and growing together as tech pioneers
           </Typography>
           <Typography variant="body1" component="p">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Lacus dignissim enim congue nisl morbi, venenatis velit auctor. Morbi facilisi ipsum quam; torquent ligula consectetur. Luctus maximus vitae venenatis ornare; eget ultricies mollis. Netus eget tellus penatibus montes purus. Diam id accumsan; primis viverra at nostra.
-          </Typography>
-          <Typography variant="body1" component="p">
-            Rutrum vestibulum in vivamus ullamcorper hac amet consequat; cras praesent. Suspendisse habitant sollicitudin pharetra morbi tellus volutpat suspendisse natoque. Proin libero amet nullam ad justo. Potenti tempus fames fringilla a, suscipit dignissim maecenas turpis. Fusce neque class, pulvinar convallis sed elementum. Fames ridiculus cras himenaeos penatibus mi magnis himenaeos duis luctus. Justo primis ac felis laoreet magna magna ligula rutrum sem. Odio proin dapibus neque; dapibus sagittis a venenatis.
+          Google Developer Student Clubs De La Salle University, powered by Google Developers Student Clubs, is an undergraduate, student-led organization dedicated to fostering a strong community of driven and innovative thinkers amongst both DLSU and non-DLSU students interested in technology and growing as developers. Enhancing these students' professional and personal network in the technological "tech" industry whilst providing them access to Google developer resources in the process.
           </Typography>
         </Grid>
       </Grid>

@@ -10,33 +10,45 @@ import program_2_icon from "../assets/program-icon-3.png";
 import program_3_icon from "../assets/program-icon-2.png";
 import Title from "./Title";
 
+const programsData = [
+  {
+    img: program_1,
+    icon: program_1_icon,
+    title: "Workshops"
+  },
+  {
+    img: program_2,
+    icon: program_2_icon,
+    title: "Dev Fests"
+  },
+  {
+    img: program_3,
+    icon: program_3_icon,
+    title: "Collaborations"
+  }
+];
+
 const Programs = () => {
   return (
-    <Grid container spacing={2} className="programs">
+    <Grid 
+      container
+      spacing={1}
+      className="programs"
+      justifyContent="center"
+      alignItems="center"
+    >
       <Grid item xs={12} id="programs">
-        <Title subTitle="Programs" title="What We Do"  />
+        <Title subTitle="Programs" title="What We Do" />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} className="program">
-        <img src={program_1} alt="Program 1" />
-        <div className="caption">
-          <img src={program_1_icon} alt="Program 1 Icon" />
-          <Typography variant="body1">Workshops</Typography>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} className="program">
-        <img src={program_2} alt="Program 2" />
-        <div className="caption">
-          <img src={program_2_icon} alt="Program 2 Icon" />
-          <Typography variant="body1">Dev Fests</Typography>
-        </div>
-      </Grid>
-      <Grid item xs={12} sm={6} md={4} className="program">
-        <img src={program_3} alt="Program 3" />
-        <div className="caption">
-          <img src={program_3_icon} alt="Program 3 Icon" />
-          <Typography variant="body1">Collaborations</Typography>
-        </div>
-      </Grid>
+      {programsData.map((program, index) => (
+        <Grid item xs={12} sm={6} md={4} className="program" key={index}>
+          <img src={program.img} alt={`Program ${index + 1}`} />
+          <div className="caption">
+            <img src={program.icon} alt={`Program ${index + 1} Icon`} />
+            <Typography variant="body1">{program.title}</Typography>
+          </div>
+        </Grid>
+      ))}
     </Grid>
   );
 };

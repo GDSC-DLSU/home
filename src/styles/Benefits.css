@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+
+.benefits img{
+    max-width: 100%;
+    object-fit: cover;
+    border-radius: 1vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#benefits > div.MuiGrid-root.MuiGrid-container.css-1eoz1c3-MuiGrid-root > div > p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    /* color: #333; */
+    margin: 2vh 0;
+}

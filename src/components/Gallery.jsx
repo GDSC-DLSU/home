@@ -1,25 +1,35 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Box } from "@mui/material";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Grid from '@mui/material/Grid';
-import image_1 from "../assets/devfest.jpg";
-import image_2 from "../assets/frontier.jpg";
-import image_3 from "../assets/xmas.jpg";
-import image_4 from "../assets/gtron.jpg";
+import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
+import { initializeApp } from "firebase/app";
+import firebaseConfig from '../firebaseConfig';
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
 
 const Gallery = () => {
-  const images = [
-    { src: image_1, alt: "DevFest" },
-    { src: image_2, alt: "Frontier" },
-    { src: image_3, alt: "Christmas" },
-    { src: image_4, alt: "G-Tron" }
-  ];
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    const fetchImages = async () => {
+      const listRef = ref(storage, 'gs://gdsc-arw.appspot.com/assets/gallery');
+      const res = await listAll(listRef);
+      const urls = await Promise.all(res.items.map(item => getDownloadURL(item)));
+      const imageObjects = urls.map((url, index) => ({ src: url, alt: `Image ${index + 1}` }));
+      setImages(imageObjects);
+    };
+
+    fetchImages();
+  }, []);
 
   return (
     <Box className="gallery" id="gallery" sx={{ margin: "80px auto", width: "90%", textAlign: "center" }}>
       <Grid container spacing={2} sx={{ marginBottom: "40px" }}>
         {images.map((image, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <img
               src={image.src}
               alt={image.alt}

@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/Hero.css";
 import dark_arrow from "../assets/dark-arrow.png";
+import logo from "../assets/LOGO/[PNG] logomark_color.png";
 
 const formsLink = "https://bit.ly/4gMf1kM";
 
@@ -15,6 +16,7 @@ const Hero = () => {
   return (
     <div className="hero container" id="hero">
       <div className="hero-text">
+        <img src={logo} alt="GDSC Logo" className="hero-logo" />
         <h1>Connect. Learn. Grow</h1>
         <p>
           Students from all undergraduate or graduate programs with an interest

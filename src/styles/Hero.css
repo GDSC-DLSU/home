@@ -30,3 +30,12 @@
   line-height: 1.4;
   font-family: 'Open Sans', sans-serif;
 }
+
+.hero-text img {
+  align-items: center;
+  width: 100%;
+  height: auto;
+  max-width: 50%;
+  margin-top: -12%;
+  margin-bottom: -12%;
+}

@@ -3,6 +3,7 @@ import '../styles/ExecutiveBoard.css';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import { getFirestore, collection, getDocs, query, orderBy } from 'firebase/firestore';
 import Title from './Title';
+import FadeInSection from './FadeInWrapper';
 
 const Team = () => {
   const [teamMembers, setTeamMembers] = useState([]);
@@ -36,20 +37,17 @@ const Team = () => {
       <div className='container'>
         <div className='team__wrapper'>
           {teamMembers.map((item, index) => (
-            <div className='team__item' key={index}>
-              <div className='team__img'>
-                <img src={item.imgUrl} alt={item.name} />
-              </div>
-              <div className='team__details'>
-                <h4>{item.name}</h4>
-                <p className='position'>{item.title}</p> 
-                <div className='team__member-social'>
-                  <span><i className='ri-linkedin-line'></i></span>
-                  <span><i className='ri-twitter-line'></i></span>
-                  <span><i className='ri-facebook-line'></i></span>
+            <FadeInSection delay={0.4}>
+              <div className='team__item' key={index}>
+                <div className='team__img'>
+                  <img src={item.imgUrl} alt={item.name} />
+                </div>
+                <div className='team__details'>
+                  <h4>{item.name}</h4>
+                  <p className='position'>{item.title}</p> 
                 </div>
               </div>
-            </div>
+            </FadeInSection>
           ))}
         </div>
       </div>

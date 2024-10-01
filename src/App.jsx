@@ -8,7 +8,7 @@ import RegForm from "./components/RegForm";
 import ExecutiveBoard from "./components/ExecutiveBoard";
 import Benefits from "./components/Benefits";
 import LookingFor from "./components/LookingFor";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 // import Testimonials from "./components/Testimonials";
 // import Contact from "./components/Contact/Contact";
 import NavigationIcon from '@mui/icons-material/Navigation';
@@ -37,14 +37,13 @@ const App = () => {
         <ExecutiveBoard />
         <LookingFor />
         <Benefits />
-
         {/* <Title subTitle="TESTIMONIALS" title="What People Say" />
         <Testimonials /> */}
         {/* <Title subTitle="Contact Us" title="Get in Touch" /> */}
         {/* <Contact /> */}
         {/* <Title subTitle="Register" title="Join Us" /> */}
-        <RegForm />
-        {/* <Footer /> */}
+        {/* <RegForm /> */}
+        <Footer />
       </div>
 
       <Fab 

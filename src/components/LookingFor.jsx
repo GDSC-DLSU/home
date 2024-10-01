@@ -1,11 +1,10 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import '../styles/About.css';
+import '../styles/LookingFor.css';
 import { styled } from '@mui/system';
-import about_img from '../assets/about.jpg';
-import play_icon from '../assets/play-icon.png';
 import Title from './Title';
+import FadeInSection from './FadeInWrapper';
 import image1 from '../assets/LookingFor/IMG_5681.jpg';
 import image2 from '../assets/LookingFor/IMG_5626.jpg';
 import image3 from '../assets/LookingFor/IMG_5621.jpg';
@@ -25,7 +24,6 @@ const StyledBox = styled(Box)(({ theme }) => ({
   });
   
   const StyledTypography = styled(Typography)(({ theme }) => ({
-    fontFamily: "'Helvetica Neue', Arial, sans-serif",
     marginBottom: theme.spacing(2),
   }));
 
@@ -62,40 +60,50 @@ const LookingForMap = {
     },
 }
 
-const About = () => {
+const LookingFor = () => {
     return (
         <section className="looking-for" id="looking-for">
-            <Title subTitle="What We're Looking For" title="Join Us" />
+            <FadeInSection>
+                <Title subTitle="What We're Looking For" title="Join Us" />
+            </FadeInSection>
             <StyledBox>
-                <Grid container spacing={4}>
+                <Grid container spacing={12}>
                 {Object.entries(LookingForMap).map(([key, value], index) => (
                     <React.Fragment key={key}>
                     {index % 2 === 0 ? (
                         <>
                         <Grid item xs={12} md={6}>
-                            <StyledTypography variant="h4" component="h2" fontWeight="bold">
-                            {value.title}
-                            </StyledTypography>
-                            <StyledTypography variant="body1">
-                            {value.description}
-                            </StyledTypography>
+                            <FadeInSection delay={0.2}>
+                                <StyledTypography variant="h3" component="h3" fontWeight="bold">
+                                    {value.title}
+                                </StyledTypography>
+                                <StyledTypography variant="body1">
+                                    {value.description}
+                                </StyledTypography>
+                            </FadeInSection>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <StyledImage src={value.img} alt={value.title} />
+                            <FadeInSection delay={0.4}>
+                                <StyledImage src={value.img} alt={value.title} />
+                            </FadeInSection>
                         </Grid>
                         </>
                     ) : (
                         <>
                         <Grid item xs={12} md={6}>
-                            <StyledImage src={value.img} alt={value.title} />
+                            <FadeInSection delay={0.2}>
+                                <StyledImage src={value.img} alt={value.title} />
+                            </FadeInSection>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <StyledTypography variant="h4" component="h2" fontWeight="bold">
-                            {value.title}
-                            </StyledTypography>
-                            <StyledTypography variant="body1">
-                            {value.description}
-                            </StyledTypography>
+                            <FadeInSection delay={0.4}>
+                                <StyledTypography variant="h3" component="h3" fontWeight="bold">
+                                    {value.title}
+                                </StyledTypography>
+                                <StyledTypography variant="body1">
+                                    {value.description}
+                                </StyledTypography>
+                            </FadeInSection>
                         </Grid>
                         </>
                     )}
@@ -105,6 +113,6 @@ const About = () => {
             </StyledBox>
         </section>
     );
-  };
-  
-  export default About;
+};
+
+export default LookingFor;

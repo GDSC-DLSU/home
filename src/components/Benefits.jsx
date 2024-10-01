@@ -6,6 +6,7 @@ import { getStorage, ref, listAll, getDownloadURL } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "../firebaseConfig";
 import "../styles/Benefits.css";
+import FadeInSection from "./FadeInWrapper";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -44,17 +45,21 @@ const Benefits = () => {
             <Grid container spacing={0} sx={{ marginBottom: "40px" }} >
                 {images.map((image, index) => (
                     <Grid item xs={12} sm={6} md={4} key={index} sx={{padding: "5%"}}>
-                        <img
-                            src={image.src}
-                            alt={image.alt}
-                            style={{
-                                width: "100%",
-                                height: "auto",
-                                borderRadius: "10px",
-                                objectFit: "cover"
-                            }}
-                        />
-                        <p>{fileNameTextMap[image.alt]}</p> 
+                        <FadeInSection delay={0.2}>
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                style={{
+                                    width: "100%",
+                                    height: "auto",
+                                    borderRadius: "10px",
+                                    objectFit: "cover"
+                                }}
+                            />
+                        </FadeInSection>
+                        <FadeInSection delay={0.4}>
+                            <p>{fileNameTextMap[image.alt]}</p> 
+                        </FadeInSection>
                     </Grid>
                 ))}
             </Grid>

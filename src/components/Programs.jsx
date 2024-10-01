@@ -9,6 +9,7 @@ import program_1_icon from "../assets/program-icon-1.png";
 import program_2_icon from "../assets/program-icon-3.png";
 import program_3_icon from "../assets/program-icon-2.png";
 import Title from "./Title";
+import FadeInSection from "./FadeInWrapper";
 
 const programsData = [
   {
@@ -42,11 +43,15 @@ const Programs = () => {
       </Grid>
       {programsData.map((program, index) => (
         <Grid item xs={12} sm={6} md={4} className="program" key={index}>
-          <img src={program.img} alt={`Program ${index + 1}`} />
-          <div className="caption">
-            <img src={program.icon} alt={`Program ${index + 1} Icon`} />
-            <Typography variant="body1">{program.title}</Typography>
-          </div>
+          <FadeInSection delay={0.2}>
+            <img src={program.img} alt={`Program ${index + 1}`} />
+          </FadeInSection>
+          <FadeInSection delay={0.4}>
+            <div className="caption">
+              <img src={program.icon} alt={`Program ${index + 1} Icon`} />
+              <Typography variant="body1">{program.title}</Typography>
+            </div>
+          </FadeInSection>
         </Grid>
       ))}
     </Grid>

@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/Hero.css";
 import dark_arrow from "../assets/dark-arrow.png";
-import logo from "../assets/LOGO/[PNG] logomark_color.png";
+import logo from "../assets/[PNG] logomark_color.png";
 
 const formsLink = "https://bit.ly/4gMf1kM";
 
